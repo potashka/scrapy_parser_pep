@@ -1,12 +1,12 @@
 import scrapy
 
 from pep_parse.items import PepParseItem
-from pep_parse.settings import START_URL
+# from pep_parse.settings import START_URL
 
 
 class PepSpider(scrapy.Spider):
     name = 'pep'
-    start_urls = START_URL
+    start_urls = ['https://peps.python.org/']  # START_URL
 
     def parse(self, response):
         pep_list = response.css(
