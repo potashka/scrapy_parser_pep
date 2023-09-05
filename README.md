@@ -16,7 +16,7 @@ Scrapy — фреймворк для парсинга веб сайтов.
 
 ## Клонировать реппозиторий:
 
-git@github.com:potashka/scrapy_parser_pep.git
+git clone https://github.com/potashka/scrapy_parser_pep.git
 
 ## Создать и активировать виртуальное окружение(Windows):
 
