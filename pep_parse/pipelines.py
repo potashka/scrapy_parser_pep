@@ -1,5 +1,4 @@
 import csv
-
 from collections import defaultdict
 from datetime import datetime
 
@@ -12,7 +11,6 @@ class PepParsePipeline:
     def __init__(self):
         self.results_dir = BASE_DIR / RESULTS
         self.results_dir.mkdir(exist_ok=True)
-        self.time = datetime.now().strftime(DT_FORMAT)
 
     def open_spider(self, spider):
         self.results = defaultdict(int)
@@ -22,17 +20,15 @@ class PepParsePipeline:
         return item
 
     def close_spider(self, spider):
-        filename = FILE_NAME.format(self.time)
+        filename = FILE_NAME.format(datetime.now().strftime(DT_FORMAT))
         with open(
             f'{self.results_dir}/{filename}',
             'w', newline='', encoding='utf-8',  # только так русский сохраняет
         ) as f:
             csv.writer(
                 f, dialect=csv.unix_dialect, quoting=csv.QUOTE_NONE
-            ).writerows(
-                (
-                    ('Статус', 'Количество'),
-                    *self.results.items(),
-                    ('Всего', sum(self.results.values()))
-                )
-            )
+            ).writerows((
+                ('Статус', 'Количество'),
+                *self.results.items(),
+                ('Всего', sum(self.results.values()))
+            ))

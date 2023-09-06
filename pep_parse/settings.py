@@ -13,7 +13,7 @@ ROBOTSTXT_OBEY = True
 ALLOWED_DOMAINS = [
     'peps.python.org',
 ]
-START_URL = [f'https://{domain}/' for domain in ALLOWED_DOMAINS]
+START_URL = [f'https://{parameters}/' for parameters in ALLOWED_DOMAINS]
 DT_FORMAT = "%Y-%m-%d_%H-%M-%S"
 RESULTS = 'results'
 
